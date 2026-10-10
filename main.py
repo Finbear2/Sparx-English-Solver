@@ -68,7 +68,7 @@ with sync_playwright() as p:
 
             print("\nQuestion:", question)
             print("Answers:", options)
-            correct = ask(text, words, question, options)
+            correct = ask(text, len(words), question, options)
             print('\nCorrect Answer:', correct)
 
             page.get_by_role("button", name=correct).click()
