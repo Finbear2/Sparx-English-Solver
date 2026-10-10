@@ -68,13 +68,16 @@ with sync_playwright() as p:
         page.get_by_role("button", name="I have read up to here").click()
 
         for i in range(4):
-            page.wait_for_timeout(3000)
-            question = page.locator(
-                ".PanelPaperbackQuestionContainer h2").inner_text()
-
             answers = page.locator(
                 ".PanelPaperbackQuestionContainer button[type='button']"
             ).all_inner_texts()
+
+            if not 'Not in story' in answers:
+                break
+
+            page.wait_for_timeout(3000)
+            question = page.locator(
+                ".PanelPaperbackQuestionContainer h2").inner_text()
 
             options = []
 
