@@ -1,9 +1,13 @@
 from playwright.sync_api import sync_playwright
 from random import randint
 from jev import ask, init
+import json
 import re
 
-targetWPM = 334
+with open('config.json', 'r') as f:
+    settings = json.load(f)
+    
+targetWPM = settings.get('wpm', 238)
 
 with sync_playwright() as p:
 

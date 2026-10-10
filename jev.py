@@ -1,6 +1,11 @@
 import requests
 import json
 
+with open('config.txt', 'r') as f:
+    settings = json.load(f)
+
+model = settings.get('model', 'tev1:4b')
+
 def init():
     print('\nInitialising AI model...')
     ask(
@@ -30,7 +35,7 @@ def ask(text, words, question, answers):
         i += 1
 
     json = {
-        "model": "tev1:4b",
+        "model": model,
         "state": text,
         "think": False,
         "questions": {
