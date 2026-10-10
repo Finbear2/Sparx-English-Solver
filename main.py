@@ -6,15 +6,28 @@ import re
 
 with open('config.json', 'r') as f:
     settings = json.load(f)
-    
+
 targetWPM = settings.get('wpm', 238)
+browser = settings.get('browser', 'firefox').lower()
 
 with sync_playwright() as p:
 
-    context = p.firefox.launch_persistent_context(
-        "browser-profile",
-        headless=False
-    )
+    if browser == 'chromium':
+        context = p.chromium.launch_persistent_context(
+            "browser-profile",
+            headless=False
+        )
+    elif browser == 'webkit':
+        context = p.webkit.launch_persistent_context(
+            "browser-profile",
+            headless=False
+        )
+    else:
+        context = p.firefox.launch_persistent_context(
+            "browser-profile",
+            headless=False
+        )
+
     page = context.pages[0] if context.pages else context.new_page()
 
     while True:

@@ -1,4 +1,5 @@
 {
     "wpm": 334,
-    "model": "tev1:4b"
+    "model": "tev1:4b",
+    "browser": "firefox"
 }
