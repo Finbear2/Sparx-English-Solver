@@ -12,9 +12,12 @@ A small python script connecting to an ollama interface which starts sparx homew
 
 ## Install
 
+> Must have ollama 0.35.0 or higher
+
 ``` bash
 python -m venv .venv
 pip install requirements.txt
 playwright install firefox
+ollama pull tev1:4b
 python main.py
 ```
