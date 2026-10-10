@@ -1,7 +1,7 @@
 import requests
 import json
 
-with open('config.txt', 'r') as f:
+with open('config.json', 'r') as f:
     settings = json.load(f)
 
 model = settings.get('model', 'tev1:4b')
