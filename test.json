@@ -1,0 +1,18 @@
+{
+    "model": "tev1: 4b",
+    "state": "Jeff walked up the poor staircase.",
+    "think": false,
+    "questions": {
+        "What did Jeff do?": {
+            "type": "choice",
+            "instructions": "Which answer best matches the given question?",
+            "criteria": {
+                "0": "Not in the story.",
+                "1": "Walked up the perfect staircase.",
+                "2": "Walked down the perfect stair case.",
+                "3": "Walked up the terrible staircase.",
+                "4": "walked down the terrible staircase."
+            }
+        }
+    }
+}
