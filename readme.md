@@ -9,6 +9,8 @@ A small python script connecting to an ollama interface which starts sparx homew
 - Automatic starting
 - Answers difficulty checks
 - Saves login information
+- Auto starts catchup when set
+- Only requires a 4b model
 
 ## Install
 
