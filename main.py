@@ -39,11 +39,16 @@ with sync_playwright() as p:
             input('Press enter when logged in...')
 
         print('\nPressing first button...')
-        button = page.get_by_role(
+        catchupButton = page.get_by_role("button", name="Catch up on incomplete tasks")
+        continueButton = page.get_by_role(
             "button",
             name=re.compile(r"(Start|Continue) your current task")
         )
-        button.click()
+
+        if catchupButton.count() == 0:
+            continueButton.click()
+        else:
+            catchupButton.click()
 
         print('Pressed! Pressing next button...')
         button = page.get_by_role(
